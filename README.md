@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Live 
 
-[digitalstore.com](https://incomparable-sprinkles-51fd49.netlify.app/)
+[digitalstore.softhouse.net](https://incomparable-sprinkles-51fd49.netlify.app/)
 
 
 ## Build
