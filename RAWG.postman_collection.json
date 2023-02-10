@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "4d5cefc1-af93-46ea-a0bb-23db4f165c7b",
+		"name": "RAWG",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25702841"
+	},
+	"item": [
+		{
+			"name": "Games",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/games?key={{key}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						}
+					]
+				},
+				"description": "Games"
+			},
+			"response": []
+		},
+		{
+			"name": "Genres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/genres?key={{key}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"genres"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Platforms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/platforms?key={{key}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"platforms"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deveopers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/developers?key={{key}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"developers"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tags",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/tags?key={{key}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tags"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/stores?key={{key}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"stores"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creator-Roles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/creator-roles?key={{key}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"creator-roles"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creators",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/creators?key={{key}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"creators"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://api.rawg.io/api",
+			"type": "string"
+		},
+		{
+			"key": "key",
+			"value": "c33d14caba2a4418a4c9010bcfc3d54c",
+			"type": "string"
+		}
+	]
+}

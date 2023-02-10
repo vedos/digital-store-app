@@ -1,0 +1,32 @@
+<div class="site-header">
+    <div class="container">
+        <a href="index.html" id="branding">
+            <img src="../assets/images/logo.png" alt="" class="logo">
+            <div class="logo-text">
+                <h1 class="site-title">Softhouse Gaming</h1>
+                <small class="site-description">all games store</small>
+            </div>
+        </a> 
+
+        <div class="right-section pull-right">
+            <a href="cart.html" class="cart"><i class="icon-cart"></i> 0 items in cart</a>
+        </div>
+
+        <div class="main-navigation">
+            <button class="toggle-menu"><i class="fa fa-bars"></i></button>
+            <ul class="menu"  >
+                <li class="menu-item" [ngClass]="selected_nav == null ? 'current-menu-item' : ''"><a (click)="search()" ><i class="icon-home"></i></a></li>
+                <li *ngFor="let platform of platforms" class="menu-item" [ngClass]="platform.id == selected_nav ? 'home current-menu-item':''">
+                    <a (click)="search(platform.id)">{{ platform.name }}</a>
+                </li>
+            </ul>
+            <div class="search-form">
+                <label><img src="../assets/images/icon-search.png"></label>
+
+                <input type="text" placeholder="Search..." [(ngModel)]="search_param" (ngModelChange)="typing()">
+            </div> 
+
+            <div class="mobile-navigation"></div> 
+        </div> 
+    </div> 
+</div> 

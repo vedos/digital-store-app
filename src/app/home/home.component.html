@@ -1,0 +1,57 @@
+<main class="main-content">
+    <div class="container">
+        <div class="page">
+            <section>
+                <header>
+                    <h2 class="section-title">Popular Games</h2>
+                </header>
+                <div class="pagination">
+                    <ul>
+                        <li class="page-item previous no"><a (click)="goToPage(page-1)">Previous</a></li>
+                        <li  class="no page-item" [ngClass]="page == 1 ? 'active' : ''" ><a (click)="goToPage(1)">1</a></li>
+                        <li *ngIf="page > 1" class="out-of-range"><a (click)="goToPage(page-1)">...</a></li>
+                        <li *ngIf="page > 1" class="page-item no"><a (click)="goToPage(page-1)">{{page - 1}}</a></li>
+                        <li *ngIf="page > 1" class="page-item" [ngClass]="page != 1 ? 'active' : ''" ><a (click)="goToPage(page)">{{page}}</a></li>
+                        <li  *ngIf="page < pageSize" class="page-item no"><a (click)="goToPage(page+1)">{{page + 1}}</a></li>
+                        <li *ngIf="page < pageSize" class="out-of-range"><a (click)="goToPage(page+1)">...</a></li>
+                        <li *ngIf="page < pageSize" class="page-item no" [ngClass]="page == pageSize ? 'active' : ''"><a (click)="goToPage(this.pageSize)">{{this.pageSize}}</a></li>
+                        <li class="page-item next no"  ><a (click)="goToPage(page+1)">Next</a></li>
+                    </ul>
+                </div>
+                <div class="product-list">
+                    <div class="product" *ngFor="let game of rawgGames">
+                        <div class="inner-product">
+                            <div class="figure-image">
+                                <a href="single.html"><img src="{{ game.background_image }}" alt="Game 1"></a>
+                            </div>
+                            <!--  [ngStyle]="{'backgroundColor': '{{game.dominant_color}}' }" -->
+                            <!--[style.background-color]="" -->
+                            <h3 class="product-title"><a href="#">{{ game.name }}</a></h3>
+                            <small class="price">{{game.price}} €</small>
+                            <p>Rating: {{ game.rating }}<br>
+                                Metacritic: {{ game.metacritic }} </p>
+
+                            <a class="button" (click)="addToCart(game)">Add to cart</a>
+                            <!--<a href="#" class="button muted">Read Details</a>-->
+                        </div>
+                    </div> <!-- .product -->
+                </div> <!-- .product-list -->
+
+            </section>
+        </div>
+        
+    <div class="pagination">
+        <ul>
+            <li class="page-item previous no"><a (click)="goToPage(page-1)">Previous</a></li>
+            <li  class="no page-item" [ngClass]="page == 1 ? 'active' : ''" ><a (click)="goToPage(1)">1</a></li>
+            <li *ngIf="page > 1" class="out-of-range"><a (click)="goToPage(page-1)">...</a></li>
+            <li *ngIf="page > 1" class="page-item no"><a (click)="goToPage(page-1)">{{page - 1}}</a></li>
+            <li *ngIf="page > 1" class="page-item" [ngClass]="page != 1 ? 'active' : ''" ><a (click)="goToPage(page)">{{page}}</a></li>
+            <li  *ngIf="page < pageSize" class="page-item no"><a (click)="goToPage(page+1)">{{page + 1}}</a></li>
+            <li *ngIf="page < pageSize" class="out-of-range"><a (click)="goToPage(page+1)">...</a></li>
+            <li *ngIf="page < pageSize" class="page-item no" [ngClass]="page == pageSize ? 'active' : ''"><a (click)="goToPage(this.pageSize)">{{this.pageSize}}</a></li>
+            <li class="page-item next no"  ><a (click)="goToPage(page+1)">Next</a></li>
+        </ul>
+    </div>
+    </div>
+</main>
