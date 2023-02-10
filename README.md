@@ -25,6 +25,6 @@ Run `npm run start` to run project.
 
 
 ## Bonus
-Postman collection: RAWG.posman_collection.json
+Postman collection: [RAWG.posman_collection.json](https://github.com/vedos/digital-store-app/blob/master/RAWG.postman_collection.json)
 
 
