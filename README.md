@@ -16,7 +16,7 @@ export const environment = {
 //removed enviroments for security reason
 
 
-## Build
+## build
 
 Run `npm i` to install all packages dependencies for project.
 
