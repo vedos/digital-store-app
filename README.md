@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Web: [incomparable-sprinkles-51fd49.netlify.app](https://incomparable-sprinkles-51fd49.netlify.app/)
 
 
-## Build
+## Run
 
 Run `npm i` to install all packages dependencies for project.
 
