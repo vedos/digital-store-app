@@ -8,6 +8,7 @@ Web: [incomparable-sprinkles-51fd49.netlify.app](https://incomparable-sprinkles-
 
 
 ## Run
+Clone `git clone https://github.com/vedos/digital-store-app.git`
 
 Run `npm i` to install all packages dependencies for project.
 
