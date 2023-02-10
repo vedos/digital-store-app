@@ -1,24 +1,36 @@
-export class StorageService<T> {
-    key: string;
+import { Injectable } from "@angular/core";
+import { Observable, Subject } from "rxjs";
 
-    constructor(key:string){
-        this.key = key
+@Injectable({
+    providedIn: 'root'
+})
+export class StorageService {
+    private storageSub = new Subject<string>();
+
+    constructor(){
+    }
+      
+    watchStorage(): Observable<string> {
+        return this.storageSub.asObservable();
     }
 
-    setKey(key:string){
-        this.key = key;
+    set<T>(object: T, key:string){
+        localStorage.setItem(key, JSON.stringify(object));        
+        this.storageSub.next('added' + key);
     }
 
-    set(object: T){
-        localStorage.setItem(this.key, JSON.stringify(object));
+    get<T>(key:string){
+        
+        return <T>(JSON.parse(localStorage.getItem(key) || 'null'));
     }
 
-    get(){
-        return <T>(JSON.parse(localStorage.getItem(this.key) || 'null'));
+    getJson(key:string){
+        return localStorage.getItem(key);
     }
 
-    remove(){
-        localStorage.removeItem(this.key);
+    remove(key: string){        
+        localStorage.removeItem(key);
+        this.storageSub.next('removed' + key);
     }
     
 }

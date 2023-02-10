@@ -9,7 +9,7 @@
         </a> 
 
         <div class="right-section pull-right">
-            <a href="cart.html" class="cart"><i class="icon-cart"></i> 0 items in cart</a>
+            <a  (click)="downloadCart()" class="cart"><i class="icon-cart"></i> {{ cart.length }} items in cart</a> <!--{{ cart.length }}-->
         </div>
 
         <div class="main-navigation">

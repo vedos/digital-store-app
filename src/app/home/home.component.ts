@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertService, ShareService } from 'src/helper';
 import { Game, Search } from 'src/models';
-import { RawgService } from 'src/services';
+import { RawgService, StorageService } from 'src/services';
 
 @Component({
   selector: 'app-home',
@@ -13,13 +13,19 @@ export class HomeComponent implements OnInit {
   page: number = 1;
   pageSize: number = 0;
   params: Search;
+  cart: GameView[];
+
+  cartKey: string = 'cart';  
+  navbarKey: string = 'navbar';
 
   constructor(
-    private shareService: ShareService,
+    private shareService: ShareService,    
+    private storageService: StorageService,
     private rawgService: RawgService,
     private alertService: AlertService){
     this.rawgGames = [];
     this.params = {};
+    this.cart = [];
   }
   
   ngOnInit(): void {  
@@ -49,6 +55,20 @@ export class HomeComponent implements OnInit {
         }
       });
     })
+
+    this.watchCart();
+  }
+
+  watchCart(){
+    if(this.storageService.get(this.cartKey) != null)
+      this.cart = this.storageService.get(this.cartKey);
+
+    this.storageService.watchStorage().subscribe((t) => {
+      if(t == 'removed'+this.cartKey || this.storageService.get(this.cartKey) == null)
+        this.cart = [];
+      else
+        this.cart = this.storageService.get(this.cartKey);
+    });
   }
 
   goToPage(page: number){
@@ -57,10 +77,11 @@ export class HomeComponent implements OnInit {
       this.params.page = this.page;
       this.shareService.setItem(this.params);
     }
-    console.log("gotopage: ", this.params);
   }
 
   addToCart(x: GameView){
+    this.cart.push(x);
+    this.storageService.set<GameView[]>(this.cart, this.cartKey);
     this.alertService.clear();
     this.alertService.success(x.name + " added to cart" );
   }
@@ -69,7 +90,6 @@ export class HomeComponent implements OnInit {
     return Math.floor(Math.random() * max);
   }
 }
-
 export interface GameView extends Game{
     price: number;
 }

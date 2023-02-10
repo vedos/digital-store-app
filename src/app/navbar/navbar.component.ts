@@ -1,31 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ShareService } from 'src/helper';
 import { Platform, Search } from 'src/models';
 import { RawgService, StorageService } from 'src/services';
+import { GameView } from '../home/home.component';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
   public platforms: Platform[];
   private navbarTags: string[];
-  private storageService: StorageService<Platform[]>;
   search_param?: string;
   selected_nav?: number;
+  cart: GameView[] = [];
+  
+  cartKey: string = 'cart';  
+  navbarKey: string = 'navbar';
 
   constructor(
     private rawgService: RawgService,
-    private shareService: ShareService) {
-    this.storageService = new StorageService('navbar');
+    private shareService: ShareService,
+    private storageService: StorageService
+    ) { 
     this.navbarTags = ['pc', 'playstation5', 'xbox-one', 'playstation4', 'xbox-series-x', 'nintendo-switch'];
     this.platforms = [];
     this.getPlatforms();
   }
 
+  ngOnInit(): void {    
+    this.watchCart();
+  }
+
   getPlatforms() {
-    if (this.storageService.get() == null) {
+    if (this.storageService.get(this.cartKey) == null) {
       this.rawgService.platforms().subscribe({
         next: data => {
           data.results.forEach(x => {
@@ -34,7 +43,7 @@ export class NavbarComponent {
               this.platforms.push(x);
             }
           })
-          this.storageService.set(this.platforms);
+          this.storageService.set<Platform[]>(this.platforms,this.navbarKey);
         },
         error: error => {
           // alert error
@@ -44,8 +53,28 @@ export class NavbarComponent {
         }
       })
     } else {
-      this.platforms = this.storageService.get();
+      this.platforms = this.storageService.get<Platform[]>(this.navbarKey);
     }
+  }
+
+  watchCart(){   
+    this.storageService.watchStorage().subscribe((t) => {
+      if(t == 'removed'+this.cartKey || this.storageService.get(this.cartKey) == null)
+        this.cart = [];
+      else
+        this.cart = this.storageService.get(this.cartKey);
+    });
+  }
+
+  downloadCart(){
+    let json = this.storageService.getJson(this.cartKey) || '{}';    
+    let uri = "data:application/json;charset=UTF-8," + encodeURIComponent(json);
+    let link = document.createElement("a");
+    link.download = "cart";
+    link.href = uri;
+    link.click(); 
+    
+    this.storageService.remove(this.cartKey);
   }
 
   typing() {
