@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Live 
 
-Web: [incomparable-sprinkles-51fd49.netlify.app)](https://incomparable-sprinkles-51fd49.netlify.app/)
+Web: [incomparable-sprinkles-51fd49.netlify.app](https://incomparable-sprinkles-51fd49.netlify.app/)
 
 
 ## Build
