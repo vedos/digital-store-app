@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## setup
 
-First create enviroments:
+create enviroments:
 
 export const environment = {
     production: true,
@@ -12,7 +12,7 @@ export const environment = {
     apiKey: //get api key from https://rawg.io/apidocs or use my from RAWG.posman_collection
 };
 
-//I removed enviroments for security reason
+//removed enviroments for security reason
 
 
 ## Build
