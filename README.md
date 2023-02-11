@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Web: [incomparable-sprinkles-51fd49.netlify.app](https://incomparable-sprinkles-51fd49.netlify.app/)
 
 ## Use
-Search products -> Add to cart -> Click cart to generate Json
+Search products -> Add to cart -> Click Cart to generate Json
 
 
 ## Run
