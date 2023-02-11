@@ -1,10 +1,13 @@
-# Digital Store
+## Digital Store
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.2.
 
-# Live 
+## Live 
 
 Web: [incomparable-sprinkles-51fd49.netlify.app](https://incomparable-sprinkles-51fd49.netlify.app/)
+
+## Use
+Search products -> Add to cart -> Click cart to generate Json
 
 
 ## Run
